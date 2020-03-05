@@ -1,12 +1,47 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
+let inputfield: HTMLInputElement = <HTMLInputElement>document.getElementById("inputfield");
+let choice: HTMLSelectElement = <HTMLSelectElement>document.getElementById("selection");
+let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+let colorelement: HTMLDivElement = <HTMLDivElement>document.getElementById("colorcontent");
+let element: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
+button.addEventListener("click", ToLowerAndUpperCase)
 
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
+function ToLowerAndUpperCase(): void {
+    colorelement.innerHTML = "";
+    let selection: string = choice.value;
+    let UserInput: string = inputfield.value;
+    if (selection === "UPPERCASE")
+        element.innerHTML = String(UserInput).toUpperCase();
 
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+    if (selection === "lowercase")
+        element.innerHTML = String(UserInput).toLowerCase();
+
+    if (selection === "Color")
+        ToColor();
+};
+function ToColor(): void {
+    element.innerHTML = "";
+    let UserInput: string = inputfield.value;
+    colorelement.innerHTML = String(UserInput);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
